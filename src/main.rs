@@ -24,22 +24,23 @@ fn main() {
     let thailand_f:f32 = 4.0;
     println!("4.0 in f32? {} {}", type_of(thailand_f), thailand_f);
 
-    let auu = (2 % 2) == 0;
-    tracing::info!("2 is odd? {:?}", auu);
+    let auu = 2 % 2;
+    let auu_is_odd = auu == 0;
+    tracing::info!("2 is odd? {:?}", auu_is_odd);
 
     // char
-    let i_am_a = 'a';
+    let _i_am_a = 'a';
 
     // string literal
-    let s: &str = "Hello World!";
+    let _s: &str = "Hello World!";
 
     // string allocated memory
-    let hello: &'static str = "hello";
+    let _hello: &'static str = "hello";
 
     // ใช้ String::new()
     let mut string = String::new();
     string.push('H');
 
     // Heap
-    let greeting = String::from("Hello World");
+    let _greeting = String::from("Hello World");
 }
