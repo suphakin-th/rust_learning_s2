@@ -62,4 +62,14 @@ fn main() {
         println!("hello");
         i += 1;
     }
+
+    let nums: [i32; 3] = [1, 2, 3];
+    println!("{:?}", nums);
+
+    let my_tuple = ('A', 10, true);
+    println!("{:?}", my_tuple);
+
+    trait Frobnicate<T> {
+        fn frobnicate(self) -> Option<T>;
+    }
 }
