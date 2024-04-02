@@ -26,7 +26,7 @@ fn main() {
 
     let auu = 2 % 2;
     let auu_is_odd = auu == 0;
-    tracing::info!("2 is odd? {:?}", auu_is_odd);
+    println!("2 is odd? {:?}", auu_is_odd);
 
     // char
     let _i_am_a = 'a';
@@ -47,8 +47,19 @@ fn main() {
     let score = 81;
 
     if score > 49 {
-        tracing::info!("Passed!");
+        println!("Passed!");
     } else {
         println!("F!");
+    }
+
+    for i in 0..10 {
+        println!("{}", i);
+    }
+
+    let mut i = 0;
+
+    while i < 10 {
+        println!("hello");
+        i += 1;
     }
 }
