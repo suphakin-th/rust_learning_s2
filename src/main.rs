@@ -4,6 +4,10 @@ fn type_of<T>(_: T) -> &'static str {
     type_name::<T>()
 }
 
+fn sum(a: u32, b: u32) -> u32 {
+    return a + b;
+}
+
 fn main() {
     let second_variable = 999;
 
@@ -72,4 +76,6 @@ fn main() {
     trait Frobnicate<T> {
         fn frobnicate(self) -> Option<T>;
     }
+    let result = sum(10, 20);
+    println!("10+20={}", result);
 }
