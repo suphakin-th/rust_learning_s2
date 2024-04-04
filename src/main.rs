@@ -67,9 +67,6 @@ fn main() {
         i += 1;
     }
 
-    let nums: [i32; 3] = [1, 2, 3];
-    println!("{:?}", nums);
-
     let my_tuple = ('A', 10, true);
     println!("{:?}", my_tuple);
 
@@ -78,4 +75,12 @@ fn main() {
     }
     let result = sum(10, 20);
     println!("10+20={}", result);
+
+    let nums: [i32; 3] = [1, 2, 3];
+    println!("{:?}", nums);
+
+    // Best practice
+    let arr: [i32; 3] = [1, 2, 3];
+    println!("{:?}", arr);
+    println!("{}", arr[1]);
 }
