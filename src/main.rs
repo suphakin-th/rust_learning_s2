@@ -94,4 +94,19 @@ fn main() {
     } else {
         println!("greater than 42");
     }
+
+    let condition = true;
+    let number = if condition { 5 } else { 6 };
+    println!("{:?}", number);
+
+    // So fast!!!!
+    let mut x = 0;
+    loop {
+        x += 1;
+        println!("{:?}", x);
+        if x == 42 {
+            break;
+        }
+    }
+    println!("{}", x);
 }
