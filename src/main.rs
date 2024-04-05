@@ -115,4 +115,28 @@ fn main() {
         x += 1;
     }
     println!("x is {}", x);
+
+    let x = 42;
+
+    match x {
+        0 => {
+            println!("found zero");
+        }
+        // match ทั้ง 1 และ 2
+        1 | 2 => {
+            println!("found 1 or 2!");
+        }
+        // match แบบ range ก็ได้
+        3..=9 => {
+            println!("found a number 3 to 9 inclusively");
+        }
+        // bind ใส่ตัวแปรก็ได้ด้วย
+        matched_num @ 10..=100 => {
+            println!("found {} number between 10 to 100!", matched_num);
+        }
+        // default match เอาไว้ดักทุกเคส คล้ายๆ switch case default
+        _ => {
+            println!("found something else!");
+        }
+    }
 }
