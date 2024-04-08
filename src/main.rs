@@ -178,4 +178,12 @@ fn main() {
         "{} have dick {} inc, dick radius {} cm, and {}",
         sealan.name, sealan.dick_inc, sealan.dick_radius_cm, sealan.dick_dec
     );
+
+    let food = String::from("hotdog");
+    let result = match food.as_str() {
+        "hotdog" => String::from("tadahhh"),
+        _ => String::from("is not hotdog"),
+    };
+
+    println!("{:?}", result);
 }
