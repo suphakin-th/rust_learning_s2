@@ -4,6 +4,13 @@ fn type_of<T>(_: T) -> &'static str {
     type_name::<T>()
 }
 
+struct SexCreature {
+    name: String,
+    dick_inc: i32,
+    dick_radius_cm: i32,
+    dick_dec: String
+}
+
 fn sum(a: u32, b: u32) -> u32 {
     return a + b;
 }
@@ -139,4 +146,36 @@ fn main() {
             println!("found something else!");
         }
     }
+
+    // try struct (That not a function we call method)
+    // Calling Methods
+    // methods คล้ายๆกับ functions (ที่ใช้ fn) แต่ต่างกันตรง methods นั้น define ใน context ของ struct
+    // จริงๆแล้ว methods ก็คือ functions ที่ทำใน struct (อาจจะฟังดูสับสน เหมือนหรือไม่เหมือนกันแน่? ดูตัวอย่างครับ)
+    // static methods - คือเมธอดที่เป็นของชนิดตัวแปร เรียกด้วย :: เช่น String::from()
+    // instance methods - คือเมธอดที่เป็นของตัวแปร ใช้ . เช่น s.len()
+
+    let sealan = SexCreature {
+        // String struct is also on stack,
+        // but holds a reference to data on heap
+        name: String::from("sealan"),
+        dick_inc: 4,
+        dick_radius_cm: 32,
+        dick_dec: String::from("wiggle follow the force of water"),
+    };
+
+    let jade = SexCreature {
+        name: String::from("jade the human"),
+        dick_inc: 7,
+        dick_radius_cm: 130,
+        dick_dec: String::from("Stronghold of human who have big dick that can pierce your vegena daughter virgin vagina and made creampies with her."),
+    };
+
+    println!(
+        "{} have dick {} inc, dick radius {} cm, and {}",
+        jade.name, jade.dick_inc, jade.dick_radius_cm, jade.dick_dec
+    );
+    println!(
+        "{} have dick {} inc, dick radius {} cm, and {}",
+        sealan.name, sealan.dick_inc, sealan.dick_radius_cm, sealan.dick_dec
+    );
 }
