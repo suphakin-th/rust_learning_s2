@@ -4,6 +4,15 @@ fn type_of<T>(_: T) -> &'static str {
     type_name::<T>()
 }
 
+struct Location(f32, f32);
+
+enum Keyboard {
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+}
+
 struct SexCreature {
     name: String,
     dick_inc: i32,
@@ -170,9 +179,11 @@ fn main() {
         dick_dec: String::from("Stronghold of human who have big dick that can pierce your vegena daughter virgin vagina and made creampies with her."),
     };
 
+    let engraved = Location(13.654542737935579, 100.60122523124825);
+
     println!(
-        "{} have dick {} inc, dick radius {} cm, and {}",
-        jade.name, jade.dick_inc, jade.dick_radius_cm, jade.dick_dec
+        "{} have dick {} inc, dick radius {} cm, and {} and he love to hunt at this ({}, {})",
+        jade.name, jade.dick_inc, jade.dick_radius_cm, jade.dick_dec, engraved.0 , engraved.1
     );
     println!(
         "{} have dick {} inc, dick radius {} cm, and {}",
