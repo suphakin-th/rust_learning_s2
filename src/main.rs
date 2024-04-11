@@ -1,4 +1,9 @@
+extern crate rand;
 use std::any::type_name;
+use rand::{
+    distributions::{Distribution, Standard},
+    Rng,
+}; // rand == 0.8.x
 
 fn type_of<T>(_: T) -> &'static str {
     type_name::<T>()
@@ -6,18 +11,39 @@ fn type_of<T>(_: T) -> &'static str {
 
 struct Location(f32, f32);
 
-enum Keyboard {
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
+#[derive(Debug)]
+enum RandomSpecies {
+    Octopus,
+    Fish,
+    Clam,
+    Crab,
+}
+
+// for rand version 0.8 ++
+impl Distribution<RandomSpecies> for Standard {
+    fn sample<R: Rng + ?Sized>(&self, rng: &mut R) -> RandomSpecies {
+        match rng.gen_range(0..=3) {
+            0 => RandomSpecies::Octopus,
+            1 => RandomSpecies::Fish,
+            2 => RandomSpecies::Clam,
+            _ => RandomSpecies::Crab,
+        }
+    }
+}
+
+struct SeaCreature {
+    species: RandomSpecies,
+    name: String,
+    arms: i32,
+    legs: i32,
+    weapon: String,
 }
 
 struct SexCreature {
     name: String,
     dick_inc: i32,
     dick_radius_cm: i32,
-    dick_dec: String
+    dick_dec: String,
 }
 
 fn sum(a: u32, b: u32) -> u32 {
@@ -183,7 +209,7 @@ fn main() {
 
     println!(
         "{} have dick {} inc, dick radius {} cm, and {} and he love to hunt at this ({}, {})",
-        jade.name, jade.dick_inc, jade.dick_radius_cm, jade.dick_dec, engraved.0 , engraved.1
+        jade.name, jade.dick_inc, jade.dick_radius_cm, jade.dick_dec, engraved.0, engraved.1
     );
     println!(
         "{} have dick {} inc, dick radius {} cm, and {}",
@@ -197,4 +223,21 @@ fn main() {
     };
 
     println!("{:?}", result);
+
+    let mut rng = rand::thread_rng();
+
+    let ferris = SeaCreature {
+        species: rng.gen(),
+        name: String::from("Ferris"),
+        arms: 2,
+        legs: 4,
+        weapon: String::from("claw"),
+    };
+
+    match ferris.species {
+        RandomSpecies::Octopus => println!("{} is a octopus", ferris.name),
+        RandomSpecies::Crab => println!("{} is a crab", ferris.name),
+        RandomSpecies::Fish => println!("{} is a fish", ferris.name),
+        RandomSpecies::Clam => println!("{} is a clam", ferris.name),
+    }
 }
