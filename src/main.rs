@@ -261,7 +261,7 @@ fn main() {
     // เป็น Some
     let _i32_bag_opt = BagOfHoldingOpt::<i32> { item: Some(42) };
 
-    // println!("i32_bag is {}", str_bag_opt);
-    // println!("bool_bag is {}", i32_bag_opt);
+    // println!("i32_bag is {}", _str_bag_opt);
+    println!("bool_bag is {:?}", _i32_bag_opt.item);
 
 }
