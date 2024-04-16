@@ -1,9 +1,9 @@
 extern crate rand;
-use std::any::type_name;
 use rand::{
     distributions::{Distribution, Standard},
     Rng,
-}; // rand == 0.8.x
+};
+use std::any::type_name; // rand == 0.8.x
 
 fn type_of<T>(_: T) -> &'static str {
     type_name::<T>()
@@ -11,6 +11,14 @@ fn type_of<T>(_: T) -> &'static str {
 
 struct BagOfHolding<T> {
     item: T,
+}
+
+fn do_something_that_might_fail(i: i32) -> Result<f32, String> {
+    if i == 42 {
+        Ok(13.0)
+    } else {
+        Err(String::from("this is not the right number"))
+    }
 }
 
 struct BagOfHoldingOpt<T> {
@@ -264,4 +272,14 @@ fn main() {
     // println!("i32_bag is {}", _str_bag_opt);
     println!("bool_bag is {:?}", _i32_bag_opt.item);
 
+    let data = do_something_that_might_fail(32);
+    println!("bool_bag is {:?}", data);
+    let data = do_something_that_might_fail(30);
+    println!("bool_bag is {:?}", data);
+    let data = do_something_that_might_fail(40);
+    println!("bool_bag is {:?}", data);
+    let data = do_something_that_might_fail(41);
+    println!("bool_bag is {:?}", data);
+    let data = do_something_that_might_fail(42);
+    println!("bool_bag is {:?}", data);
 }
