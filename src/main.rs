@@ -9,6 +9,10 @@ fn type_of<T>(_: T) -> &'static str {
     type_name::<T>()
 }
 
+struct BagOfHolding<T> {
+    item: T,
+}
+
 struct Location(f32, f32);
 
 #[derive(Debug)]
@@ -240,4 +244,11 @@ fn main() {
         RandomSpecies::Fish => println!("{} is a fish", ferris.name),
         RandomSpecies::Clam => println!("{} is a clam", ferris.name),
     }
+
+    let i32_bag = BagOfHolding::<i32> { item: 42 };
+    let bool_bag = BagOfHolding::<bool> { item: true };
+
+    println!("i32_bag is {}", i32_bag.item);
+    println!("bool_bag is {}", bool_bag.item);
+
 }
