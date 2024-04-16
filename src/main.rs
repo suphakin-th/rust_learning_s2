@@ -13,6 +13,10 @@ struct BagOfHolding<T> {
     item: T,
 }
 
+struct BagOfHoldingOpt<T> {
+    item: Option<T>,
+}
+
 struct Location(f32, f32);
 
 #[derive(Debug)]
@@ -250,5 +254,14 @@ fn main() {
 
     println!("i32_bag is {}", i32_bag.item);
     println!("bool_bag is {}", bool_bag.item);
+
+    // เป็น None
+    let _str_bag_opt = BagOfHoldingOpt::<&str> { item: None };
+
+    // เป็น Some
+    let _i32_bag_opt = BagOfHoldingOpt::<i32> { item: Some(42) };
+
+    // println!("i32_bag is {}", str_bag_opt);
+    // println!("bool_bag is {}", i32_bag_opt);
 
 }
