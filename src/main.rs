@@ -17,6 +17,7 @@ fn do_something_that_might_fail(i: i32) -> Result<f32, String> {
     if i == 42 {
         Ok(13.0)
     } else {
+        println!("{}", type_of(i));
         Err(String::from("this is not the right number"))
     }
 }
@@ -273,8 +274,6 @@ fn main() {
     println!("bool_bag is {:?}", _i32_bag_opt.item);
 
     let data = do_something_that_might_fail(32);
-    println!("bool_bag is {:?}", data);
-    let data = do_something_that_might_fail('42');
     println!("bool_bag is {:?}", data);
     let data = do_something_that_might_fail(30);
     println!("bool_bag is {:?}", data);
