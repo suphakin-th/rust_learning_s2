@@ -274,6 +274,8 @@ fn main() {
 
     let data = do_something_that_might_fail(32);
     println!("bool_bag is {:?}", data);
+    let data = do_something_that_might_fail('42');
+    println!("bool_bag is {:?}", data);
     let data = do_something_that_might_fail(30);
     println!("bool_bag is {:?}", data);
     let data = do_something_that_might_fail(40);
