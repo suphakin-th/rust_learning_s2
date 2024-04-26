@@ -273,6 +273,8 @@ fn main() {
     // println!("i32_bag is {}", _str_bag_opt);
     println!("bool_bag is {:?}", _i32_bag_opt.item);
 
+    let data = do_something_that_might_fail(30);
+    println!("bool_bag is {:?}", data);
     let data = do_something_that_might_fail(31);
     println!("bool_bag is {:?}", data);
     let data = do_something_that_might_fail(32);
